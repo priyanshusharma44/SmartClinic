@@ -12,3 +12,4 @@ C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Domain\obj\Debug\net8.0\ref\
 C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Domain\bin\Debug\net8.0\SmartClinic.Domain.runtimeconfig.json
 C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Domain\obj\Debug\net8.0\SmartClinic.Domain.genruntimeconfig.cache
 C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Domain\obj\Debug\net8.0\SmartClinic.Domain.csproj.AssemblyReference.cache
+C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Domain\obj\Debug\net8.0\SmartClinic.Domain.sourcelink.json

@@ -13,3 +13,4 @@ C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Application\obj\Debug\net8.0
 C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Application\obj\Debug\net8.0\refint\SmartClinic.Application.dll
 C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Application\obj\Debug\net8.0\SmartClinic.Application.pdb
 C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Application\obj\Debug\net8.0\ref\SmartClinic.Application.dll
+C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Application\obj\Debug\net8.0\SmartClinic.Application.sourcelink.json

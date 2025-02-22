@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using SmartClinic.Domain.Entities;
 using System.Text;
 using SmartClinic.API.Helpers;
+using SmartClinic.Application.Services;
 
 namespace SmartClinic.API
 {
@@ -47,6 +48,8 @@ namespace SmartClinic.API
                         IssuerSigningKey = new SymmetricSecurityKey(key)
                     };
                 });
+
+            builder.Services.AddScoped<IAuthService, AuthService>();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
