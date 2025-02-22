@@ -1,0 +1,55 @@
+
+Project Name	Template	Notes
+SmartClinic.Domain	Class Library (.NET 8.0)	Holds entities, enums
+SmartClinic.Application	Class Library (.NET 8.0)	Business logic, interfaces, services
+SmartClinic.Infrastructure	Class Library (.NET 8.0)	EF Core, repositories, Identity
+SmartClinic.API	ASP.NET Core Web API (.NET 8.0)	REST API with controllers
+SmartClinic.Web	Blazor Server App (.NET 8.0)	Patient/Doctor UI
+
+
+
+
+dependencies
+SmartClinic.Application → Add Reference → SmartClinic.Domain.
+
+SmartClinic.Infrastructure → Add Reference → SmartClinic.Domain + SmartClinic.Application.
+
+SmartClinic.API → Add Reference → SmartClinic.Application + SmartClinic.Infrastructure.
+
+SmartClinic.Web → Add Reference → SmartClinic.Application.
+
+
+
+
+
+
+SmartClinic/  
+├── SmartClinic.Domain/  
+│   ├── Entities/  
+│   └── Enums/  
+├── SmartClinic.Application/  
+│   ├── Interfaces/  
+│   └── Services/  
+├── SmartClinic.Infrastructure/  
+│   ├── Data/  
+│   └── Repositories/  
+├── SmartClinic.API/  
+│   ├── Controllers/  
+│   └── appsettings.json  
+└── SmartClinic.Web/  
+    ├── Pages/  
+    └── Shared/  
+
+
+
+
+
+Project	Packages to Install
+SmartClinic.Domain	(None needed)
+SmartClinic.Application	MediatR, FluentValidation
+SmartClinic.Infrastructure	Microsoft.EntityFrameworkCore, Microsoft.EntityFrameworkCore.SqlServer, Microsoft.AspNetCore.Identity.EntityFrameworkCore
+SmartClinic.API	Swashbuckle.AspNetCore, Microsoft.EntityFrameworkCore.Design
+
+
+
+

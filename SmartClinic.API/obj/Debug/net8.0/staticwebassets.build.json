@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "4FZcA+IOvPB76/C54wSlVsXZxldpjcBZS00vToW2emw=",
+  "Source": "SmartClinic.API",
+  "BasePath": "_content/SmartClinic.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
