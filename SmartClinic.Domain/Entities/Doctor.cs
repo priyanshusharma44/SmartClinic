@@ -13,6 +13,7 @@ namespace SmartClinic.Domain.Entities
         public Guid UserId { get; set; }
         public User User { get; set; } = null!;
         public string Specialization { get; set; } = null!;
-        public string Availability { get; set; } = null!; // JSON format: { "Monday": ["09:00-11:00"], ... }  
+        public string Availability { get; set; } = null!; // JSON: {"Monday": ["09:00-11:00"]}  
+        public List<Appointment> Appointments { get; set; } = new();
     }
 }

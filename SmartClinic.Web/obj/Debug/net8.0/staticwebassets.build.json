@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "E/jtUvtxLOpreJgYz1opSHx1M9ex5FNbdEPujs+0eok=",
+  "Hash": "lLVrUq+S4g6uI1NciuSLBIw6oelY6qlSAu8nuLGt5hM=",
   "Source": "SmartClinic.Web",
   "BasePath": "_content/SmartClinic.Web",
   "Mode": "Default",
@@ -16,6 +16,44 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\serjo\\.nuget\\packages\\mudblazor\\8.0.0\\staticwebassets\\MudBlazor.min.css",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\serjo\\.nuget\\packages\\mudblazor\\8.0.0\\staticwebassets\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\serjo\\.nuget\\packages\\mudblazor\\8.0.0\\staticwebassets\\MudBlazor.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\serjo\\.nuget\\packages\\mudblazor\\8.0.0\\staticwebassets\\MudBlazor.min.js",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\serjo\\.nuget\\packages\\mudblazor\\8.0.0\\staticwebassets\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\serjo\\.nuget\\packages\\mudblazor\\8.0.0\\staticwebassets\\MudBlazor.min.js"
+    },
     {
       "Identity": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Web\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SmartClinic.Web.styles.css",
       "SourceId": "SmartClinic.Web",

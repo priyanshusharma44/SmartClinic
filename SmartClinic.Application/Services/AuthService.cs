@@ -1,14 +1,16 @@
-﻿// SmartClinic.Application/Services/AuthService.cs  
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using SmartClinic.Domain.DTOs;
 using SmartClinic.Domain.Entities;
 using SmartClinic.Domain.Enums;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using SmartClinic.Infrastructure.Data;
+
 using System.Text;
+using System;
 
 namespace SmartClinic.Application.Services
 {
@@ -16,81 +18,74 @@ namespace SmartClinic.Application.Services
     {
         private readonly UserManager<User> _userManager;
         private readonly IConfiguration _configuration;
-        private readonly ILogger<AuthService> _logger;
+        private readonly AppDbContext _context;
 
-        public AuthService(UserManager<User> userManager, IConfiguration configuration, ILogger<AuthService> logger)
+        public AuthService(
+            UserManager<User> userManager,
+            IConfiguration configuration,
+            AppDbContext context)
         {
             _userManager = userManager;
             _configuration = configuration;
-            _logger = logger;
+            _context = context;
         }
 
+        // SmartClinic.Application/Services/AuthService.cs  
         public async Task<string> RegisterAsync(RegisterDto model)
         {
+            // Validate ClinicId (if provided)  
+            if (model.ClinicId != null && !await _context.Clinics.AnyAsync(c => c.Id == model.ClinicId))
+                throw new Exception("Invalid ClinicId");
+
             var user = new User
             {
                 FullName = model.FullName,
                 Email = model.Email,
                 UserName = model.Email,
-                Role = model.Role
+                Role = model.Role,
+                ClinicId = model.ClinicId
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
 
             if (!result.Succeeded)
-            {
-                _logger.LogError("User registration failed: {Errors}", string.Join(", ", result.Errors.Select(e => e.Description)));
-                throw new Exception("User registration failed: " + string.Join(", ", result.Errors.Select(e => e.Description)));
-            }
+                throw new Exception($"Registration failed: {string.Join(", ", result.Errors)}");
 
             await _userManager.AddToRoleAsync(user, model.Role.ToString());
             return "User registered successfully!";
         }
-
         public async Task<string> LoginAsync(LoginDto model)
         {
             var user = await _userManager.FindByEmailAsync(model.Email);
 
-            if (user == null)
-            {
-                _logger.LogError("User not found: {Email}", model.Email);
-                throw new Exception("Invalid email or password.");
-            }
-
-            if (!await _userManager.CheckPasswordAsync(user, model.Password))
-            {
-                _logger.LogError("Invalid password for user: {Email}", model.Email);
-                throw new Exception("Invalid email or password.");
-            }
+            if (user == null || !await _userManager.CheckPasswordAsync(user, model.Password))
+                throw new Exception("Invalid email or password");
 
             return GenerateJwtToken(user);
         }
 
         private string GenerateJwtToken(User user)
         {
-            var jwtSettings = _configuration.GetSection("Jwt");
-            var key = Encoding.ASCII.GetBytes(jwtSettings["Key"]!);
-
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Email, user.Email),
-                new Claim(ClaimTypes.Role, user.Role.ToString())
+                new Claim(ClaimTypes.Role, user.Role.ToString()),
+                new Claim("ClinicId", user.ClinicId?.ToString() ?? "")
             };
 
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.UtcNow.AddMinutes(int.Parse(jwtSettings["ExpiryInMinutes"]!)),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
-                Issuer = jwtSettings["Issuer"],
-                Audience = jwtSettings["Audience"]
-            };
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]!));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var token = tokenHandler.CreateToken(tokenDescriptor);
+            var token = new JwtSecurityToken(
+                issuer: _configuration["Jwt:Issuer"],
+                audience: _configuration["Jwt:Audience"],
+                claims: claims,
+                expires: DateTime.UtcNow.AddMinutes(int.Parse(_configuration["Jwt:ExpiryInMinutes"]!)),
+                signingCredentials: creds
+            );
 
-            return tokenHandler.WriteToken(token);
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
 }

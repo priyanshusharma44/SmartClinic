@@ -12,7 +12,8 @@ namespace SmartClinic.Domain.Entities
         public Guid Id { get; set; }
         public Guid UserId { get; set; }
         public User User { get; set; } = null!;
-        public DateTime DateOfBirth { get; set; }
         public string MedicalHistory { get; set; } = null!;
+        public List<Appointment> Appointments { get; set; } = new();
+        public List<LabReport> LabReports { get; set; } = new();
     }
 }

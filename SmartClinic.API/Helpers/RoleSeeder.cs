@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using SmartClinic.Domain.Entities;
-using SmartClinic.Domain.Enum;
+using SmartClinic.Domain.Enums;
 namespace SmartClinic.API.Helpers
 {
     public class RoleSeeder

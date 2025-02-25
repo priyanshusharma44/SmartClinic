@@ -9,49 +9,76 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 namespace SmartClinic.Infrastructure.Data
 {
-
     public class AppDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
-        {
-            public AppDbContext(DbContextOptions<AppDbContext> options): base(options) { }
+    {
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-            public DbSet<User> Users => Set<User>();
-            public DbSet<Doctor> Doctors => Set<Doctor>();
-        
-            public DbSet<Patient> Patients => Set<Patient>();
-
-            public DbSet<Appointment> Appointments => Set<Appointment>();
-
+        public DbSet<Doctor> Doctors => Set<Doctor>();
+        public DbSet<Patient> Patients => Set<Patient>();
+        public DbSet<Appointment> Appointments => Set<Appointment>();
+        public DbSet<Clinic> Clinics => Set<Clinic>();
+        public DbSet<LabReport> LabReports => Set<LabReport>();
+        public DbSet<Payment> Payments => Set<Payment>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            // Configure Doctor-User relationship (1:1)  
+
+            // Doctor-User (1:1)  
             modelBuilder.Entity<Doctor>()
-            .HasOne(d => d.User)
-            .WithOne()
-            .HasForeignKey<Doctor>(d => d.UserId)
-            .OnDelete(DeleteBehavior.Restrict); // Disable cascade delete
+                .HasOne(d => d.User)
+                .WithOne()
+                .HasForeignKey<Doctor>(d => d.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            //Configure Patient-user relationship (1:1)
+            // Patient-User (1:1)  
             modelBuilder.Entity<Patient>()
-            .HasOne(p=> p.User)
-            .WithOne()
-            .HasForeignKey< Patient>(p => p.UserId)
-            .OnDelete(DeleteBehavior.Restrict); // Disable cascade delete
+                .HasOne(p => p.User)
+                .WithOne()
+                .HasForeignKey<Patient>(p => p.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            //Configuration Appointment-Patient Relationship (Many:One)
+            // Clinic-Staff (1:Many)  
+            modelBuilder.Entity<Clinic>()
+                .HasMany(c => c.Staff)
+                .WithOne(u => u.Clinic)
+                .HasForeignKey(u => u.ClinicId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Appointment-Patient (Many:1)  
             modelBuilder.Entity<Appointment>()
-            .HasOne(a=> a.Patient)
-            .WithMany()
-            .HasForeignKey(a => a.PatientId)
-            .OnDelete(DeleteBehavior.Restrict); // Disable cascade delete
+                .HasOne(a => a.Patient)
+                .WithMany(p => p.Appointments)
+                .HasForeignKey(a => a.PatientId)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            // Configure Appointment-Doctor relationship (Many:1)  
-            modelBuilder.Entity<Appointment>()  
-            .HasOne(a=> a.Doctor)
-            .WithMany()
-            .HasForeignKey(a=>a.DoctorId)
-            .OnDelete(DeleteBehavior.Restrict); // Disable cascade delete
+            // Appointment-Doctor (Many:1)  
+            modelBuilder.Entity<Appointment>()
+                .HasOne(a => a.Doctor)
+                .WithMany(d => d.Appointments)
+                .HasForeignKey(a => a.DoctorId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // LabReport-Patient (Many:1)  
+            modelBuilder.Entity<LabReport>()
+                .HasOne(l => l.Patient)
+                .WithMany(p => p.LabReports)
+                .HasForeignKey(l => l.PatientId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // LabReport-LabTechnician (Many:1)  
+            modelBuilder.Entity<LabReport>()
+                .HasOne(l => l.LabTechnician)
+                .WithMany()
+                .HasForeignKey(l => l.LabTechnicianId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Payment-Appointment (1:1)  
+            modelBuilder.Entity<Payment>()
+                .HasOne(p => p.Appointment)
+                .WithOne()
+                .HasForeignKey<Payment>(p => p.AppointmentId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

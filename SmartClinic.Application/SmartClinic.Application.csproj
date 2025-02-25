@@ -9,10 +9,17 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.0.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.0.0" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SmartClinic.Domain\SmartClinic.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="SmartClinic.Infrastructure">
+      <HintPath>..\SmartClinic.Infrastructure\obj\Debug\net8.0\ref\SmartClinic.Infrastructure.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

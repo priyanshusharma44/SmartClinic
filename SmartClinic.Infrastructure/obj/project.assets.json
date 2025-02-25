@@ -1055,6 +1055,31 @@
           "buildTransitive/Mono.TextTemplating.targets": {}
         }
       },
+      "Newtonsoft.Json/13.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "plugin.web.eSewa.and.Khalti/1.0.10": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.1/payment-gateway-nepal.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/payment-gateway-nepal.dll": {}
+        }
+      },
       "System.ClientModel/1.0.0": {
         "type": "package",
         "dependencies": {
@@ -1657,6 +1682,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
+          "Microsoft.EntityFrameworkCore": "9.0.2",
           "Microsoft.IdentityModel.Tokens": "8.0.0",
           "SmartClinic.Domain": "1.0.0",
           "System.IdentityModel.Tokens.Jwt": "8.0.0"
@@ -3606,6 +3632,48 @@
         "readme.md"
       ]
     },
+    "Newtonsoft.Json/13.0.3": {
+      "sha512": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
+      "type": "package",
+      "path": "newtonsoft.json/13.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "README.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/net6.0/Newtonsoft.Json.dll",
+        "lib/net6.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "newtonsoft.json.13.0.3.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
+      ]
+    },
+    "plugin.web.eSewa.and.Khalti/1.0.10": {
+      "sha512": "wEgW1Ve/yC+13hSKMKzkv0igsPbFd4P10p0Qb9/mg4b76rO11iE33zECSxQjMVhmUy4Noq/4wPTEZBuOBXoT3Q==",
+      "type": "package",
+      "path": "plugin.web.esewa.and.khalti/1.0.10",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.1/payment-gateway-nepal.dll",
+        "plugin.web.esewa.and.khalti.1.0.10.nupkg.sha512",
+        "plugin.web.esewa.and.khalti.nuspec"
+      ]
+    },
     "System.ClientModel/1.0.0": {
       "sha512": "I3CVkvxeqFYjIVEP59DnjbeoGNfo/+SZrCLpRz2v/g0gpCHaEMPtWSY0s9k/7jR1rAsLNg2z2u1JRB76tPjnIw==",
       "type": "package",
@@ -4664,7 +4732,8 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.2",
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.2",
       "SmartClinic.Application >= 1.0.0",
-      "SmartClinic.Domain >= 1.0.0"
+      "SmartClinic.Domain >= 1.0.0",
+      "plugin.web.eSewa.and.Khalti >= 1.0.10"
     ]
   },
   "packageFolders": {
@@ -4745,6 +4814,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[9.0.2, )"
+          },
+          "plugin.web.eSewa.and.Khalti": {
+            "target": "Package",
+            "version": "[1.0.10, )"
           }
         },
         "imports": [

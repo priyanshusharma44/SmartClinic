@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using SmartClinic.Domain.Entities;
 
-namespace SmartClinic.Domain.Enum
+namespace SmartClinic.Domain.Enums
 {
     public enum UserRole
     {
-        Admin,    // System Administrator
-        Doctor,   // Medical Professional
-        Patient   // Registered Patient
+        Admin,
+        Doctor,
+        Patient,
+        LabTechnician
     }
 }

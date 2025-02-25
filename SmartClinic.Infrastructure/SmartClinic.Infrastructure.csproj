@@ -15,11 +15,16 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="plugin.web.eSewa.and.Khalti" Version="1.0.10" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SmartClinic.Application\SmartClinic.Application.csproj" />
     <ProjectReference Include="..\SmartClinic.Domain\SmartClinic.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

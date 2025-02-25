@@ -1,0 +1,206 @@
+Getting Started
+Installation
+Add the package to your project using the .NET CLI:
+
+dotnet add package plugin.web.eSewa.and.Khalti
+Alternatively, search for plugin.web.eSewa.and.Khalti in the NuGet Package Manager inside Visual Studio.
+
+Implementation Guide
+1. Configuration Setup
+public class PaymentController : Controller
+{
+    // Sandbox Credentials (FOR TESTING ONLY)
+    private readonly string Khalti_SandboxKey = "live_secret_key_68791341fdd94846a146f0457ff7b455";
+    private readonly string eSewa_SandboxKey = "8gBm/:&EnhH.1/q";
+    
+    // Production Credentials (Replace with your actual credentials)
+    private readonly string Khalti_ProductionKey = "your_khalti_live_secret_key";
+    private readonly string eSewa_ProductionKey = "your_esewa_live_secret_key";
+    
+    // Set to false for production
+    private readonly bool sandBoxMode = true;
+    
+    private string KhaltiKey => sandBoxMode ? Khalti_SandboxKey : Khalti_ProductionKey;
+    private string eSewaKey => sandBoxMode ? eSewa_SandboxKey : eSewa_ProductionKey;
+}
+2. Test Credentials
+eSewa Sandbox
+Username: 9806800001/2/3/4/5 (Any of these numbers)
+Password: Nepal@123
+Token: 123456
+Khalti Sandbox
+Mobile: 9800000001/2/3/4/5 (Any of these numbers)
+PIN: 1111
+OTP: 987654
+3. Implementing eSewa Payment
+public async Task<IActionResult> PayWitheSewa()
+{
+    PaymentManager paymentManager = new PaymentManager(
+        PaymentMethod.eSewa,
+        PaymentVersion.v2,
+        sandBoxMode ? PaymentMode.Sandbox : PaymentMode.Live,
+        eSewaKey
+    );
+    string currentUrl = new Uri($"{Request.Scheme}://{Request.Host}").AbsoluteUri;
+// Replace these values with your actual order data
+    dynamic request = new
+    {
+        Amount = 100,             // Your actual product amount
+        TaxAmount = 10,           // Your actual tax amount
+        TotalAmount = 110,        // Total including tax
+        TransactionUuid = $"tx-{Guid.NewGuid().ToString("N").Substring(0, 8)}",
+        ProductCode = sandBoxMode ? "EPAYTEST" : "YOUR_PRODUCT_CODE",
+        ProductServiceCharge = 0,  // Your service charge if any
+        ProductDeliveryCharge = 0, // Your delivery charge if any
+        SuccessUrl = $"{currentUrl}/Payment/Success",  // Your actual success URL
+        FailureUrl = $"{currentUrl}/Payment/Failure",  // Your actual failure URL
+        SignedFieldNames = "total_amount,transaction_uuid,product_code"
+    };
+    var response = await paymentManager.InitiatePaymentAsync<ApiResponse>(request);
+    return Redirect(response.data);
+}
+[Route("Payment/Success")]
+public async Task<IActionResult> VerifyEsewaPayment(string data)
+{
+    PaymentManager paymentManager = new PaymentManager(
+        PaymentMethod.eSewa,
+        PaymentVersion.v2,
+        sandBoxMode ? PaymentMode.Sandbox : PaymentMode.Live,
+        eSewaKey
+    );
+    eSewaResponse response = await paymentManager.VerifyPaymentAsync<eSewaResponse>(data);
+    if (!string.IsNullOrEmpty(nameof(response)) && 
+        string.Equals(response.status, "complete", StringComparison.OrdinalIgnoreCase))
+    {
+        // Handle successful payment
+        // Update your order status, database, etc.
+        ViewBag.Message = $"Payment successful: {response.transaction_code}, Amount: {response.total_amount}";
+    }
+    else
+    {
+        // Handle failed payment
+        ViewBag.Message = "Payment verification failed";
+    }
+    return View();
+}
+4. Implementing Khalti Payment
+public async Task<ActionResult> PayWithKhalti()
+{
+    string currentUrl = new Uri($"{Request.Scheme}://{Request.Host}").AbsoluteUri;
+    
+    PaymentManager paymentManager = new PaymentManager(
+        PaymentMethod.Khalti,
+        PaymentVersion.v2,
+        sandBoxMode ? PaymentMode.Sandbox : PaymentMode.Live,
+        KhaltiKey
+    );
+ // Replace with your actual order and customer data
+    dynamic request = new
+    {
+        return_url = $"{currentUrl}/Payment/KhaltiSuccess",
+        website_url = currentUrl,
+        amount = 1300,           // Your actual amount in paisa
+        purchase_order_id = $"order-{Guid.NewGuid().ToString("N").Substring(0, 8)}",
+        purchase_order_name = "Your Order Name",
+        customer_info = new KhaltiCustomerInfo()
+        {
+            name = "Customer Name",        // Get from your order
+            email = "customer@email.com",  // Get from your order
+            phone = "98XXXXXXXX"          // Get from your order
+        },
+        product_details = new List<KhaltiProductDetail>
+        {
+            new KhaltiProductDetail()
+            {
+                identity = "YOUR-PRODUCT-ID",  // Your actual product ID
+                name = "Product Name",         // Your actual product name
+                total_price = 1300,           // Your actual total price
+                quantity = 1,                 // Your actual quantity
+                unit_price = 1300            // Your actual unit price
+            }
+        },
+        amount_breakdown = new List<KhaltiAmountBreakdown>
+        {
+            new KhaltiAmountBreakdown() 
+            { 
+                label = "Base Price", 
+                amount = 1000   // Your actual base price
+            },
+            new KhaltiAmountBreakdown() 
+            { 
+                label = "VAT", 
+                amount = 300    // Your actual VAT amount
+            }
+        }
+    };
+    ApiResponse response = await paymentManager.InitiatePaymentAsync<ApiResponse>(request);
+    KhaltiInitResponse khaltiResponse = JsonConvert.DeserializeObject<KhaltiInitResponse>(
+        JsonConvert.SerializeObject(response.data)
+    );
+    return Redirect(khaltiResponse.payment_url);
+}
+[Route("Payment/KhaltiSuccess")]
+private async Task<ActionResult> VerifyKhaltiPayment(string pidx)
+{
+    PaymentManager paymentManager = new PaymentManager(
+        PaymentMethod.Khalti,
+        PaymentVersion.v2,
+        sandBoxMode ? PaymentMode.Sandbox : PaymentMode.Live,
+        KhaltiKey
+    );
+    KhaltiResponse response = await paymentManager.VerifyPaymentAsync<KhaltiResponse>(pidx);
+    if (response != null && string.Equals(response.status, "completed", StringComparison.OrdinalIgnoreCase))
+    {
+        // Handle successful payment
+        // Update your order status, database, etc.
+        ViewBag.Message = $"Payment successful. PIDX: {response.pidx}, Amount: {response.total_amount}";
+    }
+    else
+    {
+        // Handle failed payment
+        ViewBag.Message = "Payment verification failed";
+    }
+    return View();
+}
+5. Going Live Checklist
+Update Configuration:
+
+Set sandBoxMode = false
+Replace sandbox keys with your production keys
+Update product codes and other test values
+Update URLs:
+
+Ensure all callback URLs are publicly accessible
+Use HTTPS for all endpoints
+Update the website URL to your production domain
+Update Request Data:
+
+Replace test customer data with actual customer data
+Use real product information
+Set correct amounts and breakdowns
+Implement proper order ID generation
+Implement Error Handling:
+
+Log all payment attempts
+Handle network failures
+Implement retry mechanisms
+Store transaction references
+Framework Compatibility
+The package supports multiple .NET versions with specific enhancements:
+
+.NET 6 (LTS)
+Long-term support (LTS) ensures enterprise-grade reliability
+Improved cross-platform development for cloud, desktop, and web applications
+.NET 7, 8, and 9
+Enhanced performance, faster builds, and advanced APIs
+Better cloud-native development and memory management
+Contributing
+We welcome contributions from the developer community! Here’s how you can help:
+
+Raising Issues
+Visit the GitHub repository: Payment Gateway Nepal
+Submit your issue with clear details
+Contributing Code
+Fork the repository
+Add your changes or fixes
+Submit a pull request for review

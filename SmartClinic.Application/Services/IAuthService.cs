@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SmartClinic.Domain.DTOs;
 
+// SmartClinic.Application/Services/IAuthService.cs  
 namespace SmartClinic.Application.Services
 {
     public interface IAuthService

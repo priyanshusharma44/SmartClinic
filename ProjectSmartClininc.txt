@@ -1,15 +1,16 @@
 
-Project Name	Template	Notes
-SmartClinic.Domain	Class Library (.NET 8.0)	Holds entities, enums
-SmartClinic.Application	Class Library (.NET 8.0)	Business logic, interfaces, services
-SmartClinic.Infrastructure	Class Library (.NET 8.0)	EF Core, repositories, Identity
-SmartClinic.API	ASP.NET Core Web API (.NET 8.0)	REST API with controllers
-SmartClinic.Web	Blazor Server App (.NET 8.0)	Patient/Doctor UI
+Project Name	Template	Purpose
+SmartClinic.Domain	Class Library (.NET 8)	Entities, Enums, DTOs, Exceptions, Interfaces
+SmartClinic.Application	Class Library (.NET 8)	Business Logic, Services, CQRS, Validators
+SmartClinic.Infrastructure	Class Library (.NET 8)	EF Core, Identity, Repositories, Payments
+SmartClinic.API	ASP.NET Core Web API (.NET 8)	REST API with Controllers, Middleware
+SmartClinic.Web	Blazor Server App (.NET 8)	Admin & Doctor Portal (Blazor Components)
+SmartClinic.Mobile	.NET MAUI App (Mobile)	Patient Mobile App (MAUI)
+SmartClinic.AI	Class Library (.NET 8)	AI Doctor Suggestion Engine
 
 
 
 
-dependencies
 SmartClinic.Application → Add Reference → SmartClinic.Domain.
 
 SmartClinic.Infrastructure → Add Reference → SmartClinic.Domain + SmartClinic.Application.
@@ -18,6 +19,7 @@ SmartClinic.API → Add Reference → SmartClinic.Application + SmartClinic.Infr
 
 SmartClinic.Web → Add Reference → SmartClinic.Application.
 
+SmartClinic.Mobile → Add Reference → SmartClinic.Application.
 
 
 
@@ -25,20 +27,29 @@ SmartClinic.Web → Add Reference → SmartClinic.Application.
 
 SmartClinic/  
 ├── SmartClinic.Domain/  
-│   ├── Entities/  
-│   └── Enums/  
+│   ├── Entities/          # User, Doctor, Patient, Clinic, LabReport, etc.  
+│   ├── Enums/            # UserRole, AppointmentStatus, LabReportType  
+│   ├── DTOs/             # RegisterDto, LoginDto, AppointmentDto  
+│   └── Exceptions/       # Custom exceptions  
 ├── SmartClinic.Application/  
-│   ├── Interfaces/  
-│   └── Services/  
+│   ├── Services/         # IAuthService, IAppointmentService  
+│   ├── Features/         # CQRS (Commands & Queries)  
+│   └── Validators/       # FluentValidation rules  
 ├── SmartClinic.Infrastructure/  
-│   ├── Data/  
-│   └── Repositories/  
+│   ├── Data/             # AppDbContext, Migrations  
+│   ├── Repositories/     # GenericRepository, IAppointmentRepository  
+│   └── Identity/         # CustomUserManager, RoleSeeder  
 ├── SmartClinic.API/  
-│   ├── Controllers/  
+│   ├── Controllers/      # AuthController, AppointmentController  
 │   └── appsettings.json  
-└── SmartClinic.Web/  
-    ├── Pages/  
-    └── Shared/  
+├── SmartClinic.Web/  
+│   ├── Pages/            # Dashboard.razor, Appointments.razor  
+│   └── Shared/           # NavMenu.razor  
+├── SmartClinic.Mobile/  
+│   ├── Views/            # BookAppointmentPage.xaml  
+│   └── ViewModels/       # AppointmentViewModel.cs  
+└── SmartClinic.AI/  
+    └── Services/         # AIService.cs, SymptomClassifier.cs   
 
 
 

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7UjvSIDDwM0=",
+  "dgSpecHash": "LLChvIc7cno=",
   "success": true,
   "projectFilePath": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Infrastructure\\SmartClinic.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -52,6 +52,8 @@
     "C:\\Users\\serjo\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\serjo\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\serjo\\.nuget\\packages\\mono.texttemplating\\3.0.0\\mono.texttemplating.3.0.0.nupkg.sha512",
+    "C:\\Users\\serjo\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\serjo\\.nuget\\packages\\plugin.web.esewa.and.khalti\\1.0.10\\plugin.web.esewa.and.khalti.1.0.10.nupkg.sha512",
     "C:\\Users\\serjo\\.nuget\\packages\\system.clientmodel\\1.0.0\\system.clientmodel.1.0.0.nupkg.sha512",
     "C:\\Users\\serjo\\.nuget\\packages\\system.codedom\\6.0.0\\system.codedom.6.0.0.nupkg.sha512",
     "C:\\Users\\serjo\\.nuget\\packages\\system.collections.immutable\\7.0.0\\system.collections.immutable.7.0.0.nupkg.sha512",

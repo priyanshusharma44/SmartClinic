@@ -5,13 +5,17 @@ VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartClinic.Domain", "SmartClinic.Domain\SmartClinic.Domain.csproj", "{141B3D3E-D1E3-4875-8E14-D9903AAD9203}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartClinic.Application", "SmartClinic.Application\SmartClinic.Application.csproj", "{36F6577B-C54C-4BA6-9535-99B51ADFF24F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartClinic.Application", "SmartClinic.Application\SmartClinic.Application.csproj", "{36F6577B-C54C-4BA6-9535-99B51ADFF24F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartClinic.Infrastructure", "SmartClinic.Infrastructure\SmartClinic.Infrastructure.csproj", "{926514F9-E084-41CA-83F8-F52E92680CE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartClinic.Infrastructure", "SmartClinic.Infrastructure\SmartClinic.Infrastructure.csproj", "{926514F9-E084-41CA-83F8-F52E92680CE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartClinic.API", "SmartClinic.API\SmartClinic.API.csproj", "{EF1F3795-29ED-4E0A-8FFB-3E62A0DC6E7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartClinic.API", "SmartClinic.API\SmartClinic.API.csproj", "{EF1F3795-29ED-4E0A-8FFB-3E62A0DC6E7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartClinic.Web", "SmartClinic.Web\SmartClinic.Web.csproj", "{45BD6F3F-A5DC-45AD-B96E-EFCD6E18E06E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartClinic.Web", "SmartClinic.Web\SmartClinic.Web.csproj", "{45BD6F3F-A5DC-45AD-B96E-EFCD6E18E06E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartClinic.Mobile", "SmartClinic.Mobile\SmartClinic.Mobile.csproj", "{EEB7D085-5277-4FA9-B196-4AA2A19C5C96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartClinic.AI", "SmartClinic.AI\SmartClinic.AI.csproj", "{1C67BBE2-FE62-4B0C-A2AB-8D7F85CA5FA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,16 @@ Global
 		{45BD6F3F-A5DC-45AD-B96E-EFCD6E18E06E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45BD6F3F-A5DC-45AD-B96E-EFCD6E18E06E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45BD6F3F-A5DC-45AD-B96E-EFCD6E18E06E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEB7D085-5277-4FA9-B196-4AA2A19C5C96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEB7D085-5277-4FA9-B196-4AA2A19C5C96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEB7D085-5277-4FA9-B196-4AA2A19C5C96}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{EEB7D085-5277-4FA9-B196-4AA2A19C5C96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEB7D085-5277-4FA9-B196-4AA2A19C5C96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEB7D085-5277-4FA9-B196-4AA2A19C5C96}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{1C67BBE2-FE62-4B0C-A2AB-8D7F85CA5FA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C67BBE2-FE62-4B0C-A2AB-8D7F85CA5FA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C67BBE2-FE62-4B0C-A2AB-8D7F85CA5FA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C67BBE2-FE62-4B0C-A2AB-8D7F85CA5FA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

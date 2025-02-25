@@ -175,3 +175,6 @@ C:\Users\serjo\source\repos\SmartClinic\SmartClinic.API\obj\Debug\net8.0\SmartCl
 C:\Users\serjo\source\repos\SmartClinic\SmartClinic.API\obj\Debug\net8.0\SmartClinic.API.genruntimeconfig.cache
 C:\Users\serjo\source\repos\SmartClinic\SmartClinic.API\obj\Debug\net8.0\ref\SmartClinic.API.dll
 C:\Users\serjo\source\repos\SmartClinic\SmartClinic.API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\serjo\source\repos\SmartClinic\SmartClinic.API\bin\Debug\net8.0\Azure.AI.TextAnalytics.dll
+C:\Users\serjo\source\repos\SmartClinic\SmartClinic.API\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\serjo\source\repos\SmartClinic\SmartClinic.API\bin\Debug\net8.0\payment-gateway-nepal.dll

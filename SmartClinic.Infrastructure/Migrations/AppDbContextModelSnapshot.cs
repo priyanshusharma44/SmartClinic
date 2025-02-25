@@ -174,6 +174,10 @@ namespace SmartClinic.Infrastructure.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
+                    b.Property<string>("Symptoms")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("DoctorId");
@@ -181,6 +185,29 @@ namespace SmartClinic.Infrastructure.Migrations
                     b.HasIndex("PatientId");
 
                     b.ToTable("Appointments");
+                });
+
+            modelBuilder.Entity("SmartClinic.Domain.Entities.Clinic", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Contact")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Clinics");
                 });
 
             modelBuilder.Entity("SmartClinic.Domain.Entities.Doctor", b =>
@@ -208,14 +235,43 @@ namespace SmartClinic.Infrastructure.Migrations
                     b.ToTable("Doctors");
                 });
 
-            modelBuilder.Entity("SmartClinic.Domain.Entities.Patient", b =>
+            modelBuilder.Entity("SmartClinic.Domain.Entities.LabReport", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("DateOfBirth")
+                    b.Property<DateTime>("GeneratedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<Guid>("LabTechnicianId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("PatientId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ReportType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Result")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LabTechnicianId");
+
+                    b.HasIndex("PatientId");
+
+                    b.ToTable("LabReports");
+                });
+
+            modelBuilder.Entity("SmartClinic.Domain.Entities.Patient", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("MedicalHistory")
                         .IsRequired()
@@ -232,6 +288,32 @@ namespace SmartClinic.Infrastructure.Migrations
                     b.ToTable("Patients");
                 });
 
+            modelBuilder.Entity("SmartClinic.Domain.Entities.Payment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<Guid>("AppointmentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("PaymentDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("eSewaTransactionId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppointmentId")
+                        .IsUnique();
+
+                    b.ToTable("Payments");
+                });
+
             modelBuilder.Entity("SmartClinic.Domain.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
@@ -240,6 +322,9 @@ namespace SmartClinic.Infrastructure.Migrations
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
+
+                    b.Property<Guid?>("ClinicId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -296,6 +381,8 @@ namespace SmartClinic.Infrastructure.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ClinicId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -362,13 +449,13 @@ namespace SmartClinic.Infrastructure.Migrations
             modelBuilder.Entity("SmartClinic.Domain.Entities.Appointment", b =>
                 {
                     b.HasOne("SmartClinic.Domain.Entities.Doctor", "Doctor")
-                        .WithMany()
+                        .WithMany("Appointments")
                         .HasForeignKey("DoctorId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("SmartClinic.Domain.Entities.Patient", "Patient")
-                        .WithMany()
+                        .WithMany("Appointments")
                         .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -389,6 +476,25 @@ namespace SmartClinic.Infrastructure.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("SmartClinic.Domain.Entities.LabReport", b =>
+                {
+                    b.HasOne("SmartClinic.Domain.Entities.User", "LabTechnician")
+                        .WithMany()
+                        .HasForeignKey("LabTechnicianId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("SmartClinic.Domain.Entities.Patient", "Patient")
+                        .WithMany("LabReports")
+                        .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("LabTechnician");
+
+                    b.Navigation("Patient");
+                });
+
             modelBuilder.Entity("SmartClinic.Domain.Entities.Patient", b =>
                 {
                     b.HasOne("SmartClinic.Domain.Entities.User", "User")
@@ -398,6 +504,44 @@ namespace SmartClinic.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("SmartClinic.Domain.Entities.Payment", b =>
+                {
+                    b.HasOne("SmartClinic.Domain.Entities.Appointment", "Appointment")
+                        .WithOne()
+                        .HasForeignKey("SmartClinic.Domain.Entities.Payment", "AppointmentId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Appointment");
+                });
+
+            modelBuilder.Entity("SmartClinic.Domain.Entities.User", b =>
+                {
+                    b.HasOne("SmartClinic.Domain.Entities.Clinic", "Clinic")
+                        .WithMany("Staff")
+                        .HasForeignKey("ClinicId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("Clinic");
+                });
+
+            modelBuilder.Entity("SmartClinic.Domain.Entities.Clinic", b =>
+                {
+                    b.Navigation("Staff");
+                });
+
+            modelBuilder.Entity("SmartClinic.Domain.Entities.Doctor", b =>
+                {
+                    b.Navigation("Appointments");
+                });
+
+            modelBuilder.Entity("SmartClinic.Domain.Entities.Patient", b =>
+                {
+                    b.Navigation("Appointments");
+
+                    b.Navigation("LabReports");
                 });
 #pragma warning restore 612, 618
         }

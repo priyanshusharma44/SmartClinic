@@ -1,0 +1,12 @@
+C:\Users\serjo\source\repos\SmartClinic\SmartClinic.AI\bin\Debug\net8.0\SmartClinic.AI.deps.json
+C:\Users\serjo\source\repos\SmartClinic\SmartClinic.AI\bin\Debug\net8.0\SmartClinic.AI.dll
+C:\Users\serjo\source\repos\SmartClinic\SmartClinic.AI\bin\Debug\net8.0\SmartClinic.AI.pdb
+C:\Users\serjo\source\repos\SmartClinic\SmartClinic.AI\obj\Debug\net8.0\SmartClinic.AI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\serjo\source\repos\SmartClinic\SmartClinic.AI\obj\Debug\net8.0\SmartClinic.AI.AssemblyInfoInputs.cache
+C:\Users\serjo\source\repos\SmartClinic\SmartClinic.AI\obj\Debug\net8.0\SmartClinic.AI.AssemblyInfo.cs
+C:\Users\serjo\source\repos\SmartClinic\SmartClinic.AI\obj\Debug\net8.0\SmartClinic.AI.csproj.CoreCompileInputs.cache
+C:\Users\serjo\source\repos\SmartClinic\SmartClinic.AI\obj\Debug\net8.0\SmartClinic.AI.sourcelink.json
+C:\Users\serjo\source\repos\SmartClinic\SmartClinic.AI\obj\Debug\net8.0\SmartClinic.AI.dll
+C:\Users\serjo\source\repos\SmartClinic\SmartClinic.AI\obj\Debug\net8.0\refint\SmartClinic.AI.dll
+C:\Users\serjo\source\repos\SmartClinic\SmartClinic.AI\obj\Debug\net8.0\SmartClinic.AI.pdb
+C:\Users\serjo\source\repos\SmartClinic\SmartClinic.AI\obj\Debug\net8.0\ref\SmartClinic.AI.dll

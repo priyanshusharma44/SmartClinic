@@ -1,0 +1,1 @@
+C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Mobile\SmartClinic.Mobile.csproj;x64

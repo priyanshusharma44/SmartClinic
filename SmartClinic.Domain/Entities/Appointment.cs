@@ -17,8 +17,7 @@ namespace SmartClinic.Domain.Entities
         public DateTime AppointmentTime { get; set; }
         public AppointmentStatus Status { get; set; }
         public bool IsEmergency { get; set; }
-
-        // Navigation properties  
+        public string Symptoms { get; set; } = null!; // For AI analysis  
         public Patient Patient { get; set; } = null!;
         public Doctor Doctor { get; set; } = null!;
     }
