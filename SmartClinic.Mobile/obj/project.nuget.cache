@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pdxp+am9af4=",
+  "dgSpecHash": "ZYH3aBy4XIA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Mobile\\SmartClinic.Mobile.csproj",
+  "projectFilePath": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Mobile\\SmartClinic.Mobile.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\serjo\\.nuget\\packages\\communitytoolkit.mvvm\\8.0.0\\communitytoolkit.mvvm.8.0.0.nupkg.sha512",
     "C:\\Users\\serjo\\.nuget\\packages\\googlegson\\2.10.1.4\\googlegson.2.10.1.4.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Gc3Mg5+a/Tw=",
+  "dgSpecHash": "WcyBQK1ePbw=",
   "success": true,
-  "projectFilePath": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj",
+  "projectFilePath": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\serjo\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\8.0.0\\microsoft.aspnetcore.cryptography.internal.8.0.0.nupkg.sha512",
     "C:\\Users\\serjo\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\8.0.0\\microsoft.aspnetcore.cryptography.keyderivation.8.0.0.nupkg.sha512",

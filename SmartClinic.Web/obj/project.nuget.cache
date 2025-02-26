@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hdFH/puPZt4=",
+  "dgSpecHash": "hXcTUUBeT3Q=",
   "success": true,
-  "projectFilePath": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Web\\SmartClinic.Web.csproj",
+  "projectFilePath": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Web\\SmartClinic.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\serjo\\.nuget\\packages\\microsoft.aspnetcore.authorization\\8.0.12\\microsoft.aspnetcore.authorization.8.0.12.nupkg.sha512",
     "C:\\Users\\serjo\\.nuget\\packages\\microsoft.aspnetcore.components\\8.0.12\\microsoft.aspnetcore.components.8.0.12.nupkg.sha512",

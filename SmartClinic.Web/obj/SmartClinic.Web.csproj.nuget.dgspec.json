@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Web\\SmartClinic.Web.csproj": {}
+    "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Web\\SmartClinic.Web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj": {
+    "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj",
+        "projectUniqueName": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj",
         "projectName": "SmartClinic.Application",
-        "projectPath": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj",
+        "projectPath": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj",
         "packagesPath": "C:\\Users\\serjo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Application\\obj\\",
+        "outputPath": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,8 +33,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Domain\\SmartClinic.Domain.csproj": {
-                "projectPath": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Domain\\SmartClinic.Domain.csproj"
+              "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Domain\\SmartClinic.Domain.csproj": {
+                "projectPath": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Domain\\SmartClinic.Domain.csproj"
               }
             }
           }
@@ -87,14 +87,14 @@
         }
       }
     },
-    "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Domain\\SmartClinic.Domain.csproj": {
+    "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Domain\\SmartClinic.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Domain\\SmartClinic.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Domain\\SmartClinic.Domain.csproj",
         "projectName": "SmartClinic.Domain",
-        "projectPath": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Domain\\SmartClinic.Domain.csproj",
+        "projectPath": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Domain\\SmartClinic.Domain.csproj",
         "packagesPath": "C:\\Users\\serjo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Domain\\obj\\",
+        "outputPath": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -164,14 +164,14 @@
         }
       }
     },
-    "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Web\\SmartClinic.Web.csproj": {
+    "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Web\\SmartClinic.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Web\\SmartClinic.Web.csproj",
+        "projectUniqueName": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Web\\SmartClinic.Web.csproj",
         "projectName": "SmartClinic.Web",
-        "projectPath": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Web\\SmartClinic.Web.csproj",
+        "projectPath": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Web\\SmartClinic.Web.csproj",
         "packagesPath": "C:\\Users\\serjo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Web\\obj\\",
+        "outputPath": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Web\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -193,8 +193,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj": {
-                "projectPath": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj"
+              "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj": {
+                "projectPath": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj"
               }
             }
           }

@@ -45792,11 +45792,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Mobile\\SmartClinic.Mobile.csproj",
+      "projectUniqueName": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Mobile\\SmartClinic.Mobile.csproj",
       "projectName": "SmartClinic.Mobile",
-      "projectPath": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Mobile\\SmartClinic.Mobile.csproj",
+      "projectPath": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Mobile\\SmartClinic.Mobile.csproj",
       "packagesPath": "C:\\Users\\serjo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Mobile\\obj\\",
+      "outputPath": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Mobile\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [
@@ -45822,32 +45822,32 @@
         "net8.0-android34.0": {
           "targetAlias": "net8.0-android",
           "projectReferences": {
-            "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj": {
-              "projectPath": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj"
+            "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj": {
+              "projectPath": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj"
             }
           }
         },
         "net8.0-ios18.0": {
           "targetAlias": "net8.0-ios",
           "projectReferences": {
-            "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj": {
-              "projectPath": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj"
+            "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj": {
+              "projectPath": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj"
             }
           }
         },
         "net8.0-maccatalyst18.0": {
           "targetAlias": "net8.0-maccatalyst",
           "projectReferences": {
-            "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj": {
-              "projectPath": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj"
+            "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj": {
+              "projectPath": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj"
             }
           }
         },
         "net8.0-windows10.0.19041": {
           "targetAlias": "net8.0-windows10.0.19041.0",
           "projectReferences": {
-            "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj": {
-              "projectPath": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj"
+            "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj": {
+              "projectPath": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj"
             }
           }
         }

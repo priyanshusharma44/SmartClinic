@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Bxhm2OmKlCg=",
+  "dgSpecHash": "x0Ht2LsRns4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.API\\SmartClinic.API.csproj",
+  "projectFilePath": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.API\\SmartClinic.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\serjo\\.nuget\\packages\\azure.ai.textanalytics\\5.1.0\\azure.ai.textanalytics.5.1.0.nupkg.sha512",
     "C:\\Users\\serjo\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",

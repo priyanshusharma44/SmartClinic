@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SmartClinic.Application.Services;
 using SmartClinic.Domain.DTOs;
-using SmartClinic.Infrastructure.Data;
 
 namespace SmartClinic.API.Controllers
 {
@@ -10,12 +9,10 @@ namespace SmartClinic.API.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
-        private readonly AppDbContext _context;
 
-        public AuthController(IAuthService authService, AppDbContext context)
+        public AuthController(IAuthService authService)
         {
             _authService = authService;
-            _context = context;
         }
 
         [HttpPost("register")]

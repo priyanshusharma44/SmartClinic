@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.AI\\SmartClinic.AI.csproj": {}
+    "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.AI\\SmartClinic.AI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.AI\\SmartClinic.AI.csproj": {
+    "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.AI\\SmartClinic.AI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.AI\\SmartClinic.AI.csproj",
+        "projectUniqueName": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.AI\\SmartClinic.AI.csproj",
         "projectName": "SmartClinic.AI",
-        "projectPath": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.AI\\SmartClinic.AI.csproj",
+        "projectPath": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.AI\\SmartClinic.AI.csproj",
         "packagesPath": "C:\\Users\\serjo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.AI\\obj\\",
+        "outputPath": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.AI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
