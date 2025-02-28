@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -7,12 +7,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Components\Pages\Clinic.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="8.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.0" />
-    <PackageReference Include="MudBlazor" Version="8.0.0" />
+    <PackageReference Include="MudBlazor" Version="8.3.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SmartClinic.Application\SmartClinic.Application.csproj" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\SmartClinic.Domain\SmartClinic.Domain.csproj" />
+	</ItemGroup>
+	
+  <ItemGroup>
+    <None Include="Components\Pages\Clinic.razor" />
   </ItemGroup>
 
 </Project>

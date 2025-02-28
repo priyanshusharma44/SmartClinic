@@ -8,9 +8,11 @@
     ".NETCoreApp,Version=v8.0": {
       "SmartClinic.Web/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.Components.Authorization": "8.0.0",
           "Microsoft.AspNetCore.Components.WebAssembly": "8.0.0",
-          "MudBlazor": "8.0.0",
-          "SmartClinic.Application": "1.0.0"
+          "MudBlazor": "8.3.0",
+          "SmartClinic.Application": "1.0.0",
+          "SmartClinic.Domain": "1.0.0"
         },
         "runtime": {
           "SmartClinic.Web.dll": {}
@@ -42,6 +44,12 @@
         }
       },
       "Microsoft.AspNetCore.Components.Analyzers/8.0.12": {},
+      "Microsoft.AspNetCore.Components.Authorization/8.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authorization": "8.0.12",
+          "Microsoft.AspNetCore.Components": "8.0.12"
+        }
+      },
       "Microsoft.AspNetCore.Components.Forms/8.0.12": {
         "dependencies": {
           "Microsoft.AspNetCore.Components": "8.0.12"
@@ -378,7 +386,7 @@
           }
         }
       },
-      "MudBlazor/8.0.0": {
+      "MudBlazor/8.3.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Components": "8.0.12",
           "Microsoft.AspNetCore.Components.Web": "8.0.12",
@@ -386,8 +394,8 @@
         },
         "runtime": {
           "lib/net8.0/MudBlazor.dll": {
-            "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.0.0"
+            "assemblyVersion": "8.3.0.0",
+            "fileVersion": "8.3.0.0"
           }
         }
       },
@@ -436,14 +444,6 @@
         "runtime": {
           "SmartClinic.Domain.dll": {}
         }
-      },
-      "SmartClinic.Infrastructure/1.0.0.0": {
-        "runtime": {
-          "SmartClinic.Infrastructure.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
       }
     }
   },
@@ -473,6 +473,13 @@
       "sha512": "sha512-pZVRMJrtscHDxZE9JvdlIWin5zPHhbCod/J6g7hP4tyLyxFI7w+2XT9KRR9oo5pSGBHOWl9SHvSoRTh6UVihBg==",
       "path": "microsoft.aspnetcore.components.analyzers/8.0.12",
       "hashPath": "microsoft.aspnetcore.components.analyzers.8.0.12.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components.Authorization/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GlaNfvmRQAmXMrNlJcQJcB/K8ptShc121sQdqc82Yigd6d7lMVbMKI/P+rNr1ReEhPgMQNd66uh1INF9QlxI6Q==",
+      "path": "microsoft.aspnetcore.components.authorization/8.0.0",
+      "hashPath": "microsoft.aspnetcore.components.authorization.8.0.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Components.Forms/8.0.12": {
       "type": "package",
@@ -733,12 +740,12 @@
       "path": "microsoft.jsinterop.webassembly/8.0.0",
       "hashPath": "microsoft.jsinterop.webassembly.8.0.0.nupkg.sha512"
     },
-    "MudBlazor/8.0.0": {
+    "MudBlazor/8.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-itY10dugofdvLYnJ1VZSzUIiKVqNvnTz4eEMYlHUdrOfsk9xShj7k1EW5H6ssMmkbQzShlLBHlUt+VPFGoEJGw==",
-      "path": "mudblazor/8.0.0",
-      "hashPath": "mudblazor.8.0.0.nupkg.sha512"
+      "sha512": "sha512-DLc1aK8AgSas82AERWLLefWKadIF7HhYhvgO8Y7jYLZe5v1r4v3rX9pzrzTsQkuPGe6y65tob73kM6gael+WdQ==",
+      "path": "mudblazor/8.3.0",
+      "hashPath": "mudblazor.8.3.0.nupkg.sha512"
     },
     "System.Diagnostics.DiagnosticSource/9.0.2": {
       "type": "package",
@@ -782,11 +789,6 @@
     },
     "SmartClinic.Domain/1.0.0": {
       "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "SmartClinic.Infrastructure/1.0.0.0": {
-      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

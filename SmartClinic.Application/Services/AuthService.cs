@@ -1,16 +1,15 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+﻿// SmartClinic.Application/Services/AuthService.cs
+
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using SmartClinic.Application.Interfaces;
 using SmartClinic.Domain.DTOs;
 using SmartClinic.Domain.Entities;
 using SmartClinic.Domain.Enums;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using SmartClinic.Infrastructure.Data;
-
 using System.Text;
-using System;
 
 namespace SmartClinic.Application.Services
 {
@@ -18,23 +17,21 @@ namespace SmartClinic.Application.Services
     {
         private readonly UserManager<User> _userManager;
         private readonly IConfiguration _configuration;
-        private readonly AppDbContext _context;
+        private readonly IClinicRepository _clinicRepository; // Changed to interface
 
         public AuthService(
             UserManager<User> userManager,
             IConfiguration configuration,
-            AppDbContext context)
+            IClinicRepository clinicRepository) // Inject interface instead of AppDbContext
         {
             _userManager = userManager;
             _configuration = configuration;
-            _context = context;
+            _clinicRepository = clinicRepository;
         }
 
-        // SmartClinic.Application/Services/AuthService.cs  
         public async Task<string> RegisterAsync(RegisterDto model)
         {
-            // Validate ClinicId (if provided)  
-            if (model.ClinicId != null && !await _context.Clinics.AnyAsync(c => c.Id == model.ClinicId))
+            if (model.ClinicId != null && !await _clinicRepository.ClinicExists(model.ClinicId.Value))
                 throw new Exception("Invalid ClinicId");
 
             var user = new User
@@ -47,7 +44,6 @@ namespace SmartClinic.Application.Services
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
-
             if (!result.Succeeded)
                 throw new Exception($"Registration failed: {string.Join(", ", result.Errors)}");
 

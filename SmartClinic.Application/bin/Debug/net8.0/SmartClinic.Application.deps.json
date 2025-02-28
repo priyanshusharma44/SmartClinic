@@ -11,8 +11,7 @@
           "Microsoft.EntityFrameworkCore": "9.0.2",
           "Microsoft.IdentityModel.Tokens": "8.0.0",
           "SmartClinic.Domain": "1.0.0",
-          "System.IdentityModel.Tokens.Jwt": "8.0.0",
-          "SmartClinic.Infrastructure": "1.0.0.0"
+          "System.IdentityModel.Tokens.Jwt": "8.0.0"
         },
         "runtime": {
           "SmartClinic.Application.dll": {}
@@ -279,14 +278,6 @@
         "runtime": {
           "SmartClinic.Domain.dll": {}
         }
-      },
-      "SmartClinic.Infrastructure/1.0.0.0": {
-        "runtime": {
-          "SmartClinic.Infrastructure.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
       }
     }
   },
@@ -466,11 +457,6 @@
     },
     "SmartClinic.Domain/1.0.0": {
       "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "SmartClinic.Infrastructure/1.0.0.0": {
-      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

@@ -13,9 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartClinic.API", "SmartCli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartClinic.Web", "SmartClinic.Web\SmartClinic.Web.csproj", "{45BD6F3F-A5DC-45AD-B96E-EFCD6E18E06E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartClinic.Mobile", "SmartClinic.Mobile\SmartClinic.Mobile.csproj", "{EEB7D085-5277-4FA9-B196-4AA2A19C5C96}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartClinic.Mobile", "SmartClinic.Mobile\SmartClinic.Mobile.csproj", "{EEB7D085-5277-4FA9-B196-4AA2A19C5C96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartClinic.AI", "SmartClinic.AI\SmartClinic.AI.csproj", "{1C67BBE2-FE62-4B0C-A2AB-8D7F85CA5FA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartClinic.AI", "SmartClinic.AI\SmartClinic.AI.csproj", "{1C67BBE2-FE62-4B0C-A2AB-8D7F85CA5FA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

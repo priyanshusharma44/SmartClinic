@@ -157,7 +157,6 @@ public class MonoPackageManager_Resources {
 		"Microsoft.Maui.Controls.resources.dll",
 		"SmartClinic.Application.dll",
 		"SmartClinic.Domain.dll",
-		"SmartClinic.Infrastructure.dll",
 		"_Microsoft.Android.Resource.Designer.dll",
 	};
 	public static String[] Dependencies = new String[]{

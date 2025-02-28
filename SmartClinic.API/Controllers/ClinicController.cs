@@ -1,42 +1,61 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using SmartClinic.Domain.DTOs;
+﻿// SmartClinic.API/Controllers/ClinicController.cs
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SmartClinic.Domain.Entities;
 using SmartClinic.Infrastructure.Data;
+using SmartClinic.API.Models;  // Assuming ClinicDto is defined in the Models folder
 
 namespace SmartClinic.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
     public class ClinicController : ControllerBase
     {
         private readonly AppDbContext _context;
 
-        public ClinicController(AppDbContext context)
-        {
-            _context = context;
-        }
+        public ClinicController(AppDbContext context) => _context = context;
 
+        // GET: api/clinic
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Clinic>>> GetClinics() =>
+            await _context.Clinics.ToListAsync();
+
+        // POST: api/clinic
         [HttpPost]
         public async Task<IActionResult> CreateClinic([FromBody] ClinicDto model)
         {
-            var clinic = new Clinic
+            try
             {
-                Name = model.Name,
-                Address = model.Address,
-                Contact = model.Contact
-            };
+                var clinic = new Clinic
+                {
+                    Name = model.Name,
+                    Address = model.Address,
+                    Contact = model.Contact
+                };
 
-            await _context.Clinics.AddAsync(clinic);
-            await _context.SaveChangesAsync();
+                await _context.Clinics.AddAsync(clinic);
+                await _context.SaveChangesAsync();
 
-            return Ok(clinic.Id); // Return the generated ClinicId  
+                return Ok(new { clinic.Id }); // Return only the clinic Id
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}"); // Handle unexpected errors
+            }
         }
-    }
 
-    public class ClinicDto
-    {
-        public string Name { get; set; } = null!;
-        public string Address { get; set; } = null!;
-        public string Contact { get; set; } = null!;
+        // DELETE: api/clinic/{id}
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteClinic(Guid id)
+        {
+            var clinic = await _context.Clinics.FindAsync(id);
+            if (clinic == null) return NotFound();
+
+            _context.Clinics.Remove(clinic);
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
     }
 }

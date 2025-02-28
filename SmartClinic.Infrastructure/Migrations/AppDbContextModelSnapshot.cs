@@ -295,7 +295,8 @@ namespace SmartClinic.Infrastructure.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
+                        .HasPrecision(18, 4)
+                        .HasColumnType("decimal(18,4)");
 
                     b.Property<Guid>("AppointmentId")
                         .HasColumnType("uniqueidentifier");

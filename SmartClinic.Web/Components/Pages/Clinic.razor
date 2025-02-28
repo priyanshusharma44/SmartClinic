@@ -1,0 +1,57 @@
+﻿@page "/admin/clinics"
+@attribute [Authorize(Roles = "Admin")]
+@using SmartClinic.Domain.Entities
+@inject HttpClient Http
+
+
+<MudContainer>
+    <MudText Typo="Typo.h4">Manage Clinics</MudText>
+
+    <MudCard>
+        <MudCardContent>
+            <MudTextField Label="Name" @bind-Value="newClinic.Name" />
+            <MudTextField Label="Address" @bind-Value="newClinic.Address" />
+            <MudTextField Label="Contact" @bind-Value="newClinic.Contact" />
+            <MudButton Color="Color.Primary" OnClick="AddClinic">Add Clinic</MudButton>
+        </MudCardContent>
+    </MudCard>
+        
+    <MudTable Items="clinics" Hover="true">
+        <HeaderContent>
+            <MudTh>Name</MudTh>
+            <MudTh>Address</MudTh>
+            <MudTh>Contact</MudTh>
+            <MudTh>Actions</MudTh>
+        </HeaderContent>
+        <RowTemplate Context="item">
+            <MudTd>@item.Name</MudTd>
+            <MudTd>@item.Address</MudTd>
+            <MudTd>@item.Contact</MudTd>
+            <MudTd>
+                <MudIconButton Icon="@MudBlazor.Icons.Material.Filled.Delete" 
+                               OnClick="async () => await DeleteClinic(item.Id)" />
+            </MudTd>
+        </RowTemplate>
+    </MudTable>
+</MudContainer>
+
+@code {
+    private List<Clinic> clinics = new();
+    private Clinic newClinic = new();
+
+    protected override async Task OnInitializedAsync() => 
+        clinics = await Http.GetFromJsonAsync<List<Clinic>>("api/clinic");
+
+    private async Task AddClinic()
+    {
+        await Http.PostAsJsonAsync("api/clinic", newClinic);
+        newClinic = new Clinic();
+        await OnInitializedAsync();
+    }
+
+    private async Task DeleteClinic(Guid id)
+    {
+        await Http.DeleteAsync($"api/clinic/{id}");
+        await OnInitializedAsync();
+    }
+}

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SmartClinic.Application.Interfaces;
 using SmartClinic.Application.Services;
 using SmartClinic.Domain.DTOs;
 

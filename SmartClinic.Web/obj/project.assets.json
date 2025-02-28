@@ -43,6 +43,23 @@
           "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets": {}
         }
       },
+      "Microsoft.AspNetCore.Components.Authorization/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authorization": "8.0.0",
+          "Microsoft.AspNetCore.Components": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.AspNetCore.Components.Authorization.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.Components.Authorization.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Components.Forms/8.0.12": {
         "type": "package",
         "dependencies": {
@@ -689,7 +706,7 @@
           }
         }
       },
-      "MudBlazor/8.0.0": {
+      "MudBlazor/8.3.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Components": "8.0.12",
@@ -891,6 +908,21 @@
         "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets",
         "microsoft.aspnetcore.components.analyzers.8.0.12.nupkg.sha512",
         "microsoft.aspnetcore.components.analyzers.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Components.Authorization/8.0.0": {
+      "sha512": "GlaNfvmRQAmXMrNlJcQJcB/K8ptShc121sQdqc82Yigd6d7lMVbMKI/P+rNr1ReEhPgMQNd66uh1INF9QlxI6Q==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.components.authorization/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.txt",
+        "lib/net8.0/Microsoft.AspNetCore.Components.Authorization.dll",
+        "lib/net8.0/Microsoft.AspNetCore.Components.Authorization.xml",
+        "microsoft.aspnetcore.components.authorization.8.0.0.nupkg.sha512",
+        "microsoft.aspnetcore.components.authorization.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Components.Forms/8.0.12": {
@@ -1810,10 +1842,10 @@
         "microsoft.jsinterop.webassembly.nuspec"
       ]
     },
-    "MudBlazor/8.0.0": {
-      "sha512": "itY10dugofdvLYnJ1VZSzUIiKVqNvnTz4eEMYlHUdrOfsk9xShj7k1EW5H6ssMmkbQzShlLBHlUt+VPFGoEJGw==",
+    "MudBlazor/8.3.0": {
+      "sha512": "DLc1aK8AgSas82AERWLLefWKadIF7HhYhvgO8Y7jYLZe5v1r4v3rX9pzrzTsQkuPGe6y65tob73kM6gael+WdQ==",
       "type": "package",
-      "path": "mudblazor/8.0.0",
+      "path": "mudblazor/8.3.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1831,7 +1863,7 @@
         "lib/net8.0/MudBlazor.xml",
         "lib/net9.0/MudBlazor.dll",
         "lib/net9.0/MudBlazor.xml",
-        "mudblazor.8.0.0.nupkg.sha512",
+        "mudblazor.8.3.0.nupkg.sha512",
         "mudblazor.nuspec",
         "staticwebassets/MudBlazor.min.css",
         "staticwebassets/MudBlazor.min.js"
@@ -2042,9 +2074,11 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Microsoft.AspNetCore.Components.Authorization >= 8.0.0",
       "Microsoft.AspNetCore.Components.WebAssembly >= 8.0.0",
-      "MudBlazor >= 8.0.0",
-      "SmartClinic.Application >= 1.0.0"
+      "MudBlazor >= 8.3.0",
+      "SmartClinic.Application >= 1.0.0",
+      "SmartClinic.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2054,11 +2088,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Web\\SmartClinic.Web.csproj",
+      "projectUniqueName": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Web\\SmartClinic.Web.csproj",
       "projectName": "SmartClinic.Web",
-      "projectPath": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Web\\SmartClinic.Web.csproj",
+      "projectPath": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Web\\SmartClinic.Web.csproj",
       "packagesPath": "C:\\Users\\serjo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Web\\obj\\",
+      "outputPath": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2080,8 +2114,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj": {
-              "projectPath": "C:\\Users\\serjo\\Source\\Repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj"
+            "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj": {
+              "projectPath": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Application\\SmartClinic.Application.csproj"
+            },
+            "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Domain\\SmartClinic.Domain.csproj": {
+              "projectPath": "C:\\Users\\serjo\\source\\repos\\SmartClinic\\SmartClinic.Domain\\SmartClinic.Domain.csproj"
             }
           }
         }
@@ -2101,13 +2138,17 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Components.Authorization": {
+            "target": "Package",
+            "version": "[8.0.0, )"
+          },
           "Microsoft.AspNetCore.Components.WebAssembly": {
             "target": "Package",
             "version": "[8.0.0, )"
           },
           "MudBlazor": {
             "target": "Package",
-            "version": "[8.0.0, )"
+            "version": "[8.3.0, )"
           }
         },
         "imports": [

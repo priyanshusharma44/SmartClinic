@@ -7,7 +7,10 @@ using SmartClinic.Application.Services;
 using SmartClinic.Domain.Entities;
 using SmartClinic.Domain.Enums;
 using SmartClinic.Infrastructure.Data;
+using MudBlazor.Services;
 using System.Text;
+using SmartClinic.Application.Interfaces;
+using SmartClinic.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,7 +40,6 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 // Configure JWT  
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 var key = Encoding.ASCII.GetBytes(jwtSettings["Key"]!);
-
 
 builder.Services.AddAuthentication(options =>
 {
@@ -84,7 +86,7 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-
+builder.Services.AddScoped<IClinicRepository, ClinicRepository>();
 
 // Add Authorization Policies  
 builder.Services.AddAuthorization(options =>
@@ -100,11 +102,15 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Seed Roles  
+// Seed Roles
 using (var scope = app.Services.CreateScope())
 {
     var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole<Guid>>>();
     await SeedRolesAsync(roleManager);
+
+    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+    await DbSeeder.SeedTestData(context, userManager);
 }
 
 async Task SeedRolesAsync(RoleManager<IdentityRole<Guid>> roleManager)
@@ -115,6 +121,7 @@ async Task SeedRolesAsync(RoleManager<IdentityRole<Guid>> roleManager)
             await roleManager.CreateAsync(new IdentityRole<Guid>(role));
     }
 }
+
 // Enable CORS
 app.UseCors("AllowAll");
 

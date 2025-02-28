@@ -78,6 +78,7 @@ C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Mobile\bin\Debug\net8.0-ios\
 C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Mobile\bin\Debug\net8.0-ios\iossimulator-x64\Microsoft.Maui.Essentials.dll
 C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Mobile\bin\Debug\net8.0-ios\iossimulator-x64\Microsoft.Maui.Graphics.dll
 C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Mobile\bin\Debug\net8.0-ios\iossimulator-x64\Refit.dll
+C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Mobile\bin\Debug\net8.0-ios\iossimulator-x64\System.Diagnostics.DiagnosticSource.dll
 C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Mobile\bin\Debug\net8.0-ios\iossimulator-x64\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Mobile\bin\Debug\net8.0-ios\iossimulator-x64\ar\Microsoft.Maui.Controls.resources.dll
 C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Mobile\bin\Debug\net8.0-ios\iossimulator-x64\ca\Microsoft.Maui.Controls.resources.dll
@@ -139,7 +140,6 @@ C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Mobile\bin\Debug\net8.0-ios\
 C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Mobile\bin\Debug\net8.0-ios\iossimulator-x64\System.Data.dll
 C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Mobile\bin\Debug\net8.0-ios\iossimulator-x64\System.Diagnostics.Contracts.dll
 C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Mobile\bin\Debug\net8.0-ios\iossimulator-x64\System.Diagnostics.Debug.dll
-C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Mobile\bin\Debug\net8.0-ios\iossimulator-x64\System.Diagnostics.DiagnosticSource.dll
 C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Mobile\bin\Debug\net8.0-ios\iossimulator-x64\System.Diagnostics.FileVersionInfo.dll
 C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Mobile\bin\Debug\net8.0-ios\iossimulator-x64\System.Diagnostics.Process.dll
 C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Mobile\bin\Debug\net8.0-ios\iossimulator-x64\System.Diagnostics.StackTrace.dll
@@ -333,4 +333,3 @@ C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Mobile\obj\Debug\net8.0-ios\
 C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Mobile\obj\Debug\net8.0-ios\iossimulator-x64\SmartClinic.Mobile.pdb
 C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Mobile\obj\Debug\net8.0-ios\iossimulator-x64\SmartClinic.Mobile.genruntimeconfig.cache
 C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Mobile\obj\Debug\net8.0-ios\iossimulator-x64\ref\SmartClinic.Mobile.dll
-C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Mobile\bin\Debug\net8.0-ios\iossimulator-x64\SmartClinic.Infrastructure.dll

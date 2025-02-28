@@ -24,6 +24,13 @@ namespace SmartClinic.Infrastructure.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            // Define precision for Payment.Amount
+            modelBuilder.Entity<Payment>()
+                .Property(p => p.Amount)
+                .HasPrecision(18, 4); // Adjust precision and scale as needed
+
+            // Other entity configurations...
+
             // Doctor-User (1:1)  
             modelBuilder.Entity<Doctor>()
                 .HasOne(d => d.User)
@@ -80,5 +87,6 @@ namespace SmartClinic.Infrastructure.Data
                 .HasForeignKey<Payment>(p => p.AppointmentId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
+
     }
 }

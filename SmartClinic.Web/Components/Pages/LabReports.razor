@@ -1,0 +1,47 @@
+﻿@page "/lab/reports"
+@attribute [Authorize(Roles = "LabTechnician")]
+@using Microsoft.AspNetCore.Components.Authorization
+@using System.Security.Claims
+@using SmartClinic.Domain.DTOs
+@inject AuthenticationStateProvider AuthStateProvider
+@using MudBlazor
+@using MudBlazor.Services
+@inject HttpClient Http
+@inject ISnackbar Snackbar
+
+<MudContainer>
+    <MudText Typo="Typo.h4">Generate Lab Report</MudText>
+
+    <MudCard>
+        <MudCardContent>
+            <MudBlazor.MudTextField Label="Patient ID" @bind-Value="patientIdString" />
+            <MudBlazor.MudTextField Label="Report Type" @bind-Value="newReport.ReportType" />
+            <MudBlazor.MudTextField Label="Result" @bind-Value="newReport.Result" />
+            <MudButton Color="Color.Primary" OnClick="GenerateReport">Generate</MudButton>
+        </MudCardContent>
+    </MudCard>
+</MudContainer>
+
+@code {
+    private LabReportDto newReport = new();
+    private string patientIdString = string.Empty;
+
+    private async Task GenerateReport()
+    {
+        var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        var userId = authState.User.FindFirstValue(ClaimTypes.NameIdentifier);
+        newReport.LabTechnicianId = Guid.Parse(userId!);
+
+        if (!Guid.TryParse(patientIdString, out var parsedPatientId))
+        {
+            Snackbar.Add("Invalid Patient ID format.", Severity.Error);
+            return;
+        }
+
+        newReport.PatientId = parsedPatientId;
+        await Http.PostAsJsonAsync("api/labreport", newReport);
+        newReport = new LabReportDto();
+        patientIdString = string.Empty;
+        Snackbar.Add("Report generated successfully!", Severity.Success);
+    }
+}

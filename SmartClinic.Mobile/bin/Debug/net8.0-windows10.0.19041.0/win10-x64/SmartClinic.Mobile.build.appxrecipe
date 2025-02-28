@@ -490,9 +490,6 @@
     <AppxPackagedFile Include="C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Domain\bin\Debug\net8.0\SmartClinic.Domain.dll">
       <PackagePath>SmartClinic.Domain.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\serjo\source\repos\SmartClinic\SmartClinic.Application\bin\Debug\net8.0\SmartClinic.Infrastructure.dll">
-      <PackagePath>SmartClinic.Infrastructure.dll</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\serjo\.nuget\packages\microsoft.maui.controls.compatibility\8.0.100\lib\net8.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.pri">
       <PackagePath>Microsoft.Maui.Controls.Compatibility.pri</PackagePath>
     </AppxPackagedFile>
